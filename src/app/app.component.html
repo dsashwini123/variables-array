@@ -1,0 +1,24 @@
+<div>
+  <h1>{{ title }}</h1>
+  <p>{{ description }}</p>
+
+  <h2>Items</h2>
+  <ul>
+    <li *ngFor="let item of items; let i = index">
+      {{ item }} <button (click)="removeItem(i)">Remove</button>
+    </li>
+  </ul>
+
+  <input #newItem type="text" placeholder="Add new item">
+  <button (click)="addItem(newItem.value); newItem.value=''">Add Item</button>
+
+  <h2>Numbers</h2>
+  <ul>
+    <li *ngFor="let number of numbers">{{ number }}</li>
+  </ul>
+
+  <input #newNumber type="number" placeholder="Add new number">
+  <button (click)="addNumber(newNumber.valueAsNumber); newNumber.value=''">Add Number</button>
+
+  <h3>Total of Numbers: {{ getTotalNumbers() }}</h3>
+</div>
